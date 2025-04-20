@@ -1,4 +1,5 @@
 #include <furi.h>
+#include <furi_hal.h>
 
 int32_t smart_portail_tool(void* p) {
     UNUSED(p);
@@ -8,7 +9,6 @@ int32_t smart_portail_tool(void* p) {
     return 0;
 }
 
-// Ce bloc est requis :
 const App smart_portail_tool_app = {
     .app = smart_portail_tool,
 };
