@@ -1,7 +1,5 @@
-- name: Build Flipper App
-  run: |
-    ufbt
-    
+name: Build Flipper App
+
 on:
   push:
     branches: [ main ]
@@ -9,22 +7,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install ufbt
-        run: |
-          pip install ufbt
-
-      - name: Build Flipper App
-        run: |
-          cd applications_user/smart_portail_tool
-          ufbt
+      - name: Build with ufbt
+        uses: flipperdevices/flipperzero-ufbt-action@v0.1
+        id: build
+        with:
+          sdk-channel: release
 
       - name: Upload FAP artifact
         uses: actions/upload-artifact@v4
         with:
           name: smart_portail_tool.fap
           path: ${{ steps.build.outputs.fap-artifacts }}
-
