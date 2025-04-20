@@ -9,14 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Debug — List project structure
-        run: |
-          echo "::group::Project structure"
-          tree -L 3
-          echo "::endgroup::"
 
       - name: Build with ufbt
         uses: flipperdevices/flipperzero-ufbt-action@v0.1
