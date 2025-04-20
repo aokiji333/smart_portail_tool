@@ -23,4 +23,3 @@ jobs:
         with:
           name: smart_portail_tool.fap
           path: ${{ steps.build.outputs.fap-artifacts }}
-
