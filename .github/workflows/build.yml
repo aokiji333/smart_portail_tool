@@ -1,5 +1,7 @@
-name: Build Flipper App
-
+- name: Build Flipper App
+  run: |
+    ufbt
+    
 on:
   push:
     branches: [ main ]
