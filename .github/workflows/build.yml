@@ -12,6 +12,12 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: Debug — List project structure
+        run: |
+          echo "::group::Project structure"
+          tree -L 3
+          echo "::endgroup::"
+
       - name: Build with ufbt
         uses: flipperdevices/flipperzero-ufbt-action@v0.1
         id: build
@@ -23,3 +29,4 @@ jobs:
         with:
           name: smart_portail_tool.fap
           path: ${{ steps.build.outputs.fap-artifacts }}
+
