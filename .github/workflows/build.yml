@@ -18,7 +18,6 @@ jobs:
       - name: Build Flipper App
         run: |
           cd applications_user/smart_portail_tool
-          ufbt scan
           ufbt
 
       - name: Upload FAP artifact
@@ -26,5 +25,3 @@ jobs:
         with:
           name: smart_portail_tool.fap
           path: ~/.ufbt/build/smart_portail_tool.fap
-
-
