@@ -1,20 +1,25 @@
 import os
+from SCons.Script import Default, Environment
 
-# Définir les variables d'environnement
+# Initialiser l'environnement de build
 env = Environment()
 
-# Ajouter les répertoires sources
+# Définir les variables d'environnement
 env.Append(CPPPATH=[
     '#applications_user/smart_portail_tool',
     # Ajoutez d'autres répertoires si nécessaire
 ])
 
 # Définir les cibles de build
-env.BuildTarget(
+smart_portail_tool_sources = [
+    'applications_user/smart_portail_tool/main.c',
+    # Ajoutez d'autres fichiers sources si nécessaire
+]
+
+smart_portail_tool = env.Program(
     target='smart_portail_tool',
-    source=['applications_user/smart_portail_tool/main.c'],
-    action='$CC $CFLAGS $CPPFLAGS $LDFLAGS -o $TARGET $SOURCES'
+    source=smart_portail_tool_sources
 )
 
 # Définir la cible par défaut
-Default(env.BuildTarget)
+Default(smart_portail_tool)
