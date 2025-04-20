@@ -1,1 +1,1 @@
-add_subdirectory(applications_user)
+add_subdirectory(smart_portail_tool)
