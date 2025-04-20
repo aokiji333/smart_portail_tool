@@ -7,9 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Build with ufbt
@@ -17,9 +16,11 @@ jobs:
         id: build
         with:
           sdk-channel: release
+          app-dir: applications_user/smart_portail_tool
 
       - name: Upload FAP artifact
         uses: actions/upload-artifact@v4
         with:
           name: smart_portail_tool.fap
           path: ${{ steps.build.outputs.fap-artifacts }}
+
