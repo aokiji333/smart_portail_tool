@@ -5,4 +5,3 @@ App(
     entry_point="smart_portail_tool",
     stack_size=1024,
 )
-
