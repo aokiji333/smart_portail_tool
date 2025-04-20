@@ -1,20 +1,30 @@
-name: "FAP: Build and lint"
-on: [push, pull_request]
+name: Build Flipper App
+
+on:
+  push:
+    branches: [ main ]
+
 jobs:
-  ufbt-build-action:
+  build:
     runs-on: ubuntu-latest
-    name: 'ufbt: Build for Dev branch'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Build with ufbt
-        uses: flipperdevices/flipperzero-ufbt-action@v0.1
-        id: build-app
-        with:
-          sdk-channel: dev
-      - name: Upload app artifacts
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install ufbt
+        run: |
+          pip install ufbt
+
+      - name: Build Flipper App
+        run: |
+          cd applications_user/smart_portail_tool
+          ufbt scan
+          ufbt
+
+      - name: Upload FAP artifact
         uses: actions/upload-artifact@v3
         with:
-          name: build-output
-          path: ${{ steps.build-app.outputs.fap-artifacts }}
+          name: smart_portail_tool.fap
+          path: ~/.ufbt/build/smart_portail_tool.fap
+
 
