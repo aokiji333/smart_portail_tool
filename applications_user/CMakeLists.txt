@@ -1,1 +1,0 @@
-add_subdirectory(smart_portail_tool)
