@@ -1,5 +1,4 @@
 #include <furi.h>
-#include <furi_hal.h>
 
 int32_t smart_portail_tool(void* p) {
     UNUSED(p);
@@ -8,3 +7,8 @@ int32_t smart_portail_tool(void* p) {
     furi_hal_gpio_write(&gpio_led_red, false);
     return 0;
 }
+
+// Ce bloc est requis :
+const App smart_portail_tool_app = {
+    .app = smart_portail_tool,
+};
