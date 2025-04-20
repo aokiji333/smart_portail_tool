@@ -1,4 +1,0 @@
-Import("env")
-
-app = env.Program("main.c")
-Default(app)
