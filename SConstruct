@@ -16,10 +16,12 @@ smart_portail_tool_sources = [
     # Ajoutez d'autres fichiers sources si nécessaire
 ]
 
+# Définir la cible de build pour l'application
 smart_portail_tool = env.Program(
-    target='smart_portail_tool',
+    target='build/smart_portail_tool',  # Spécifiez le chemin de sortie
     source=smart_portail_tool_sources
 )
 
 # Définir la cible par défaut
 Default(smart_portail_tool)
+
