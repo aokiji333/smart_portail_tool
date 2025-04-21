@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build with ufbt
         uses: flipperdevices/flipperzero-ufbt-action@v0.1
@@ -23,4 +23,3 @@ jobs:
         with:
           name: smart_portail_tool.fap
           path: ${{ steps.build-app.outputs.fap-artifacts }}
-
