@@ -1,4 +1,4 @@
-#include <furi.h> 
+#include <furi.h>
 #include <furi_hal.h>
 
 int32_t smart_portail_tool(void* p) {
@@ -12,4 +12,3 @@ int32_t smart_portail_tool(void* p) {
 const App smart_portail_tool_app = {
     .app = smart_portail_tool,
 };
-
